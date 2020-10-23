@@ -21,8 +21,15 @@ public class ProductoController {
 		return productoService.findAll();
 	}
 	
+	
 	@GetMapping("/ver/{id}")
-	public Producto findbyId(@PathVariable long id) {
+	public Producto findbyId(@PathVariable long id) throws Exception {
+		
+		if(id==1) {
+			//throw new Exception("Fallo intencionado y controlado");
+			Thread.sleep(2000);
+		}
+		
 		return productoService.findById(id);
 	}
 }
